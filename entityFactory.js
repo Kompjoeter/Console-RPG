@@ -41,11 +41,11 @@ const namesLast = [
 ]
 
 const species = [
-    "Apeman",
-    "Cyclops",
-    "Human",
-    "Mutant",
-    "Oozeling"
+    new Species("Apeman",["Beast","Humanoid"],"Medium"),
+    new Species("Cyclops",["Anamoly","Humanoid"],"Medium"),,
+    new Species("Human",["Humanoid"],"Medium"),,
+    new Species("Mutant",["Anomaly","Human","Humanoid"],"Medium"),,
+    new Species("Oozeling",["Alien","Anomaly","Humanoid"],"Medium"),
 ]
 
 

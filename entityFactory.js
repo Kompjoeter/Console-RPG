@@ -41,11 +41,11 @@ const namesLast = [
 ]
 
 const species = [
-    new Species("Apeman",["Beast","Humanoid"],"Medium"),
-    new Species("Cyclops",["Anamoly","Humanoid"],"Medium"),,
-    new Species("Human",["Humanoid"],"Medium"),,
-    new Species("Mutant",["Anomaly","Human","Humanoid"],"Medium"),,
-    new Species("Oozeling",["Alien","Anomaly","Humanoid"],"Medium"),
+    new Species(0,"Apeman",["Beast","Humanoid"],"Medium",40),
+    new Species(1,"Cyclops",["Anamoly","Humanoid"],"Medium",60),
+    new Species(2,"Human",["Humanoid"],"Medium",70),
+    new Species(3,"Mutant",["Anomaly","Human","Humanoid"],"Medium",55),
+    new Species(4,"Oozeling",["Alien","Anomaly","Humanoid"],"Medium",100),
 ]
 
 
@@ -55,7 +55,11 @@ function entityCreate()
     let entityFirstName = namesFirst[entitySex][utility.getRandomInt(namesFirst[entitySex].length)];
     let entityLastName = namesLast[utility.getRandomInt(namesLast.length)];
     let entitySpecies = species[utility.getRandomInt(species.length)];
-  
-    let player = new Entity(entityFirstName,entityLastName,entitySex,entitySpecies);
+    let entityAge = species[entitySpecies.index].ageLimitAverage;
+
+    //there is a chance that it adds 0-10% of ageLimitAverage to entity age
+    entityAge = utility.getRandomInt(entityAge+(utility.getRandomInt(Math.floor(entityAge/10))));
+
+    let player = new Entity(entityFirstName,entityLastName,entitySex,entitySpecies,entityAge);        
     console.log(player);
 }
